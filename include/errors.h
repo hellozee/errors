@@ -19,12 +19,6 @@ public:
         _e_string(nullptr), _type(error_type::blank)
     { }
 
-    ~error()
-    {
-        if (_e_string != nullptr)
-            delete _e_string;
-    }
-
     inline const char * what() const
     {
         return _e_string == nullptr ? "" : _e_string;
