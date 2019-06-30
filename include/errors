@@ -6,25 +6,32 @@
 
 namespace errors {
     class error {
+private:
+        enum class error_type{
+            blank, nil, err
+        };
+        std::string _e_string;
+        error_type _type;
+        friend error nil();
 public:
         error(std::string error_string)
-            : _e_string(error_string), _is_nil(false)
+            : _e_string(error_string), _type(error_type::err)
         { }
 
-        inline std::string what(){ return _e_string; }
+        error():
+            _e_string(""), _type(error_type::blank)
+        { }
+
+        inline std::string what() const { return _e_string; }
 
         bool operator == (const error &e) const {
-            return e._e_string == _e_string && e._is_nil == _is_nil;
+            return e._e_string == _e_string && e._type == _type;
         }
 
         bool operator != (const error &e) const {
-            return e._e_string != _e_string || e._is_nil != _is_nil;
+            return e._e_string != _e_string || e._type != _type;
         }
 
-private:
-        std::string _e_string;
-        bool _is_nil;
-        friend error nil();
     };
 
     inline error new_error(std::string error_string)
@@ -34,8 +41,8 @@ private:
 
     error nil()
     {
-        error e("");
-        e._is_nil = true;
+        error e;
+        e._type = error::error_type::nil;
         return e;
     }
     
