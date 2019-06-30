@@ -23,7 +23,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 # Building the executable ===================================
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+include_directories(include/)
 
 # Building the tests ========================================
 
@@ -36,13 +36,5 @@ include( cmake/CodeCoverage.cmake )
 SET(CMAKE_CXX_FLAGS "-g -O0 --coverage -fprofile-arcs -ftest-coverage")
 SET(CMAKE_C_FLAGS "-g -O0 --coverage -fprofile-arcs -ftest-coverage")
 
-add_executable(errors_tests errors_test.cc)
-target_link_libraries(errors_tests gtest gtest_main)
+add_subdirectory(tests)
 
-SETUP_TARGET_FOR_COVERAGE(
-    errors_tests_coverage  
-    errors_tests
-    coverage
-)
-
-add_test(ErrorsTest ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/errors_tests)
