@@ -8,6 +8,16 @@ TEST(ErrorsTest, WhatString) {
     EXPECT_EQ(s, e.what());
 }
 
+TEST(ErrorsTest, EqualAndNil) {
+    auto e = errors::nil();
+    EXPECT_EQ(e, errors::nil());
+}
+
+TEST(ErrorsTest, NotEqual) {
+    auto e1 = errors::new_error("just testing");
+    EXPECT_NE(e1, errors::nil());
+}
+
 int main(int argc, char *argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);

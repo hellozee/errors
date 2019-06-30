@@ -13,12 +13,12 @@ public:
 
         inline std::string what(){ return _e_string; }
 
-        bool operator == (const error &e){
+        bool operator == (const error &e) const {
             return e._e_string == _e_string && e._is_nil == _is_nil;
         }
 
-        bool operator != (const error &e){
-            return !(*this == e);
+        bool operator != (const error &e) const {
+            return e._e_string != _e_string || e._is_nil != _is_nil;
         }
 
 private:
@@ -38,7 +38,10 @@ private:
         e._is_nil = true;
         return e;
     }
-
+    
+    //this is not what it should look like
+    //but for the time, I don't have any idea
+    //how to approach so let it be
     void panic(error e)
     {
         if (e != nil()) {
