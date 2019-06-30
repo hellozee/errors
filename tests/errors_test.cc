@@ -1,6 +1,6 @@
 #include <iostream>
 #include <gtest/gtest.h>
-#include <errors>
+#include <errors.h>
 
 TEST(ErrorsTest, WhatString) {
     std::string s("just testing");

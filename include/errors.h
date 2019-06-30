@@ -1,5 +1,5 @@
-#ifndef __ERRORS__H
-#define __ERRORS__H
+#ifndef HELLOZEE_ERRORS_H
+#define HELLOZEE_ERRORS_H
 
 #include <string>
 #include <iostream>
