@@ -29,7 +29,7 @@ public:
         }
 
         bool operator != (const error &e) const {
-            return e._e_string != _e_string || e._type != _type;
+            return e._type != _type || e._e_string != _e_string;
         }
 
     };
