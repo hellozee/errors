@@ -20,15 +20,15 @@ if err != nil {
 I try to imitate the same thing in `c++`, for example I can write the above example using my library as
 
 ```c++
-#include <errors>
+#include <errors.h>
 ..
 ..
-std::tie(f, err) = some_function(param);
-if(err != errors::nil()){
+errors::container<type> result = some_function(param);
+if(result.err() != errors::nil()){
     //oops error
 }
 ```
 
-The library is a header only library.
+The library is a header only library. 
 
-But it is still incomplete since I am yet to figure out how to imitate golang's `panic()` and `recover()`
+I try to avoid involving `std::exception` in the library, as well  as the resulting code, it is being used in, but I am not sure if I am able to get that, would be happy if someone could point me out an example where exceptions would involved and if possible can suggest a solution. :smile:
