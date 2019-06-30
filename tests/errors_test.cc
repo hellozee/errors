@@ -2,18 +2,18 @@
 #include <gtest/gtest.h>
 #include <errors.h>
 
-TEST(ErrorsTest, WhatString) {
+TEST(ErrorsTest, WhatString){
     std::string s("just testing");
-    auto e = errors::new_error(s); 
+    auto e = errors::new_error(s);
     EXPECT_EQ(s, e.what());
 }
 
-TEST(ErrorsTest, EqualAndNil) {
+TEST(ErrorsTest, EqualAndNil){
     auto e = errors::nil();
     EXPECT_EQ(e, errors::nil());
 }
 
-TEST(ErrorsTest, NotEqual) {
+TEST(ErrorsTest, NotEqual){
     auto e1 = errors::new_error("just testing");
     EXPECT_NE(e1, errors::nil());
 }
