@@ -46,6 +46,20 @@ error nil()
     e._type = error::error_type::nil;
     return e;
 }
+
+template<typename type>
+class container{
+    private:
+        error _e;
+        type _object;
+    public:
+        container(type object, error e):
+            _e(e), _object(object)
+    { }
+        
+        inline error err() const { return _e; }
+        inline type object() const { return _object; }
+};
 }
 
 #endif /* ifndef HELLOZEE_ERRORS_H */
