@@ -25,6 +25,10 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(include/)
 
+# Building the examples =====================================
+
+add_subdirectory(examples)
+
 # Building the tests ========================================
 
 add_subdirectory(external/gtest)
