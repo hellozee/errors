@@ -1,10 +1,9 @@
-#include <iostream>
 #include <gtest/gtest.h>
 #include <errors.h>
 
 TEST(ErrorsTest, WhatString){
     std::string s("just testing");
-    auto e = errors::new_error(s);
+    auto e = errors::new_error(s.c_str());
     EXPECT_EQ(s, e.what());
 }
 

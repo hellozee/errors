@@ -1,5 +1,6 @@
 #include <errors.h>
 #include <tuple>
+#include <iostream>
 
 auto simple_divide(int a, int b)
 {
