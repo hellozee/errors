@@ -57,8 +57,8 @@ public:
         _e(e), _object(object)
     { }
 
-    inline error err() const { return _e; }
-    inline type object() const { return _object; }
+    inline const error& err() const { return _e; }
+    inline const type& object() const { return _object; }
 };
 }
 
