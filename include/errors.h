@@ -53,8 +53,12 @@ private:
     error _e;
     type _object;
 public:
-    container(type object, error e) :
+    container(const type& object, error e) :
         _e(e), _object(object)
+    { }
+
+    container(type&& object, error e) :
+        _e(e), _object(std::move(object))
     { }
 
     inline const error& err() const { return _e; }
