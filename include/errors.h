@@ -1,6 +1,8 @@
 #ifndef HELLOZEE_ERRORS_H
 #define HELLOZEE_ERRORS_H
 
+#include <utility>
+
 namespace errors {
 class error {
 private:
