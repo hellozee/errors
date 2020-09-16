@@ -1,3 +1,4 @@
+# If you are looking at this beware there are better alternatives like std::expected or if your C++ standard doesn't provide that there is [tl::expected](https://github.com/TartanLlama/expected)
 # errors
 
 An idiot's attempt to do a `go` like error handling in `c++`
