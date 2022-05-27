@@ -9,13 +9,13 @@ TEST(ErrorsTest, WhatString){
 }
 
 TEST(ErrorsTest, EqualAndNil){
-    auto e = errors::nil();
-    EXPECT_EQ(e, errors::nil());
+    auto e = errors::nil;
+    EXPECT_EQ(e, errors::nil);
 }
 
 TEST(ErrorsTest, NotEqual){
     auto e1 = errors::new_error("just testing");
-    EXPECT_NE(e1, errors::nil());
+    EXPECT_NE(e1, errors::nil);
 }
 
 class Class
@@ -43,16 +43,37 @@ errors::container<std::vector<Class>> getVector()
 
     result.push_back(Class());
 
-    return errors::container<std::vector<Class>>(std::move(result), errors::nil());
+    return errors::container<std::vector<Class>>(std::move(result), errors::error());
 }
 
 TEST(ErrorsTest, Container) {
     auto container = getVector();
 
-    EXPECT_EQ(container.err(), errors::nil());
+    EXPECT_EQ(container.err(), errors::nil);
     EXPECT_EQ(container.object()[0].copied, false);
     EXPECT_EQ(container.object()[0].moved, true);
 }
+
+
+
+errors::error fct(int i) {
+  if(i > 5) {
+    return(errors::error("Error message"));
+  }
+
+  return errors::error();
+}
+
+TEST(ErrorsTest, NewComparison) {
+    errors::error err = fct(1);
+    EXPECT_EQ(err, errors::nil);
+
+    err = fct(6);
+    EXPECT_EQ(err, errors::err);
+}
+
+
+
 
 int main(int argc, char *argv[])
 {

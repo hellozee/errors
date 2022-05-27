@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/konrad/Documents/GitHub/errors/examples/multiple_return.cc
+errors.h
+-
+stdio.h
+-
+
+include/errors.h
+utility
+-
+iostream
+-
+
