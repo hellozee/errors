@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/multiple_return_example.dir/multiple_return.cc.o  -o ../bin/multiple_return_example 

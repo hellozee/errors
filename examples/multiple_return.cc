@@ -9,14 +9,14 @@ auto simple_divide(int a, int b)
         // can be substituted with {0, errors::new_error("trying to divide by zero")}
         // for c++17
     }
-    return errors::container<double>(a / b, errors::nil());
+    return errors::container<double>(a / b, errors::error());
     // similarly {a/b, errors::nil()}
 }
 
 int main()
 {
     auto result = simple_divide(4, 0);
-    if (result.err() != errors::nil()) {
+    if (result.err() != errors::nil) {
         printf("%s\n", result.err().what());
     }
 }

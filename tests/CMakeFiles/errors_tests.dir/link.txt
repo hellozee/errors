@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -O0 --coverage -fprofile-arcs -ftest-coverage -g  -rdynamic CMakeFiles/errors_tests.dir/errors_test.cc.o  -o ../bin/errors_tests  ../lib/libgtestd.a ../lib/libgtest_maind.a ../lib/libgtestd.a -lpthread 
